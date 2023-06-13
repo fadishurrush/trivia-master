@@ -11,9 +11,8 @@ import TriviaContext from '../../store/triviaContext';
 const Q1 = () => {
   const [question, setQuestion] = useState({});
   const [qAnswers, setQAnswers] = useState([]);
-  const [counter, setCounter] = useState(0);
   const navigation = useNavigation();
-  const {phone, answeredQuestions,setAnsweredQuestions} = useContext(TriviaContext);
+  const {phone, answeredQuestions,setAnsweredQuestions,counter,setCounter} = useContext(TriviaContext);
 
   useEffect(() => {
     getCorrectAnsweres();
@@ -76,9 +75,12 @@ const Q1 = () => {
 
   const generateRandQ = async () => {
     console.log("answeredQuestion array ",answeredQuestions);
-    let remainingQuestions = questions.filter(
+
+    var remainingQuestions = questions.filter(
       q => !answeredQuestions.includes(q),
     );
+    console.log("remaining array ",remainingQuestions);
+
       console.log("gererating questions Answered Question array lenght ",answeredQuestions.length);
     if (remainingQuestions.length === 0) {
       return passTheTest();

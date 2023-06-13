@@ -5,6 +5,8 @@ import urls from "../api/url's";
 const TriviaProvider = props =>{
     const [phone,setPhone]=useState(null);
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [counter, setCounter] = useState(0);
+
     
     return (
         <TriviaContext.Provider
@@ -12,7 +14,9 @@ const TriviaProvider = props =>{
             phone,
             setPhone,
             answeredQuestions,
-            setAnsweredQuestions
+            setAnsweredQuestions,
+            counter,
+            setCounter,
         }}>
             {props.children}
         </TriviaContext.Provider>
